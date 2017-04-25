@@ -1,0 +1,9 @@
+{
+    "path": {
+        "src": "./src",
+        "root": "./",
+        "dist": "./assets/"
+    },
+    "proxy": false,
+    "gitignore": false
+}

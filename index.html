@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>passwd</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta property="og:title" content="passwd">
+    <meta property="og:image" content="assets/images/favicon.png">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-TileColor" content="#EEEEEE">
+    <meta name="theme-color" content="#EEEEEE">
+    <meta name="msapplication-TileImage" content="assets/images/favicon.png">
+    <meta name="msapplication-square70x70logo" content="assets/images/favicon.png">
+    <meta name="msapplication-square150x150logo" content="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css">
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+</head>
+<body>
+<div class="container">
+    <form class="form-signin">
+        <h3 class="form-signin-heading">Please fill in the fields</h3>
+        <label for="inputSite" class="sr-only">Site</label>
+        <label for="inputLogin" class="sr-only">Login</label>
+        <label for="inputPassword" class="sr-only">Master password</label>
+        <div class="fields input">
+            <input type="text" class="form-control"
+                   id="inputSite" name="inputSite"
+                   required="" placeholder="Site" autofocus="">
+            <input type="text" class="form-control"
+                   id="inputLogin" name="inputLogin"
+                   required="" placeholder="Login">
+            <input type="password" class="form-control"
+                   id="inputPassword" name="inputPassword"
+                   required="" placeholder="Master password">
+        </div><!-- /.fields -->
+
+        <h3 class="form-signin-heading">Generated password</h3>
+        <label for="output" class="sr-only">Generated password</label>
+        <div class="fields">
+            <input type="text" id="output" class="form-control" placeholder="Generated password" required="">
+        </div><!-- /.fields -->
+        <button class="btn btn-lg btn-primary btn-block" type="reset">Reset</button>
+    </form><!-- /.form-signin -->
+</div><!-- /.container -->
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="assets/js/md5.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
