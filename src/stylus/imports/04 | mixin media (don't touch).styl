@@ -1,0 +1,60 @@
+$media_cache = {}
+
+$media_aliases := {
+  palm:       '(max-width: 480px)'
+  lap:        '(min-width: 481px) and (max-width: 1023px)'
+  lap-and-up: '(min-width: 481px)'
+  portable:   '(max-width: 1023px)'
+  desk:       '(min-width: 1024px)'
+  desk-wide:  '(min-width: 1200px)'
+}
+
+media($condition) {
+  $conditions = ()
+  for $condition in arguments {
+    $tmps = split(',', $condition)
+
+    for $tmp in $tmps {
+      $conditions[length($conditions)] = replace('^\s*', '', replace('\s*$', '', $tmp))
+    }
+  }
+
+  helper($condition) {
+    unless $media_cache[$condition] {
+      $media_cache[$condition] = ();
+    }
+    push($media_cache[$condition], block);
+  }
+
+  for $condition in $conditions {
+    $condition = replace('^\s*', '', replace('\s*$', '', $condition))
+    $condition = replace('(\([^\)]+\)|[^\s\(]+)(\s*)', '$1✁', $condition)
+
+    +helper($condition) {
+      {selector() + ''} {
+        {block}
+      }
+    }
+  }
+}
+
+apply_media_cache() {
+  for $medias, $blocks in $media_cache {
+    $media_query = 'only screen';
+    $medias = replace('^✁', '', replace('✁$', '', $medias))
+    $medias = split('✁', $medias);
+
+    for $media in $medias {
+      $media_query += ' and ';
+      $media = unquote($media_aliases[$media] || $media);
+      $media = '(%s)' % $media unless match('\(', $media);
+      $media_query += $media;
+    }
+
+    @media $media_query {
+      for $block in $blocks {
+        {$block}
+      }
+    }
+  }
+}
