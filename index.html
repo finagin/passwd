@@ -56,17 +56,25 @@
                    required="" placeholder="Master password">
         </div><!-- /.fields -->
 
-        <h3 class="form-signin-heading">Generated password</h3>
         <label for="output" class="sr-only">Generated password</label>
-        <div class="fields">
-            <input type="text" id="output" class="form-control" placeholder="Generated password" required="">
-        </div><!-- /.fields -->
-        <button class="btn btn-lg btn-primary btn-block" type="reset">Reset</button>
+        <textarea id="output" class="form-control text-to-copy-passwd"
+                  placeholder="Generated password" rows="1"></textarea>
+        <button class="btn btn-lg btn-success btn-block js-copy-btn-passwd" type="button">Copy password</button>
+        <button class="btn btn-lg btn-danger btn-block" type="reset">Reset</button>
     </form><!-- /.form-signin -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text text-center">
+                <a href="https://finag.in">Igor Finagin</a>
+                © 2017
+            </p><!-- /.navbar-text -->
+        </div><!-- /.container -->
+    </nav><!-- /.navbar -->
 </div><!-- /.container -->
 
 <!-- Scripts -->
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//cdn.jsdelivr.net/cheval/latest/cheval.min.js"></script>
 <script src="assets/js/md5.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
