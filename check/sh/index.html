@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+HASH=$(printf $1 | openssl sha1 | awk '{print toupper($1)}');
+COUNT=$(curl -sSL "https://api.pwnedpasswords.com/range/${HASH:0:5}" | grep "${HASH:5}" | sed 's/[^:]*:\([0-9]*\)/\1/g');
+
+if [ -z "${COUNT}" ]; then
+	echo "Упоминаний в базе слитых паролей нет";
+else
+	echo "Упоминаний в базе слитых паролей: ${COUNT}";
+fi
+
